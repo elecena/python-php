@@ -1,7 +1,7 @@
 # elecena.pl (c) 2015-2018
 
 # @see https://hub.docker.com/_/python/
-FROM python:2.7-stretch
+FROM python:2.7-slim-stretch
 
 # install dependencies
 RUN apt-get update && apt-get install -y \

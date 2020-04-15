@@ -12,7 +12,7 @@ docker pull elecena/python-php
 ## Installed software
 
 ```
-$ docker run -it elecena/docker-php bash info.sh
+$ docker run -it elecena/python-php bash info.sh
 
 Linux 0ca1b37e5927 5.4.0-4-amd64 #1 SMP Debian 5.4.19-1 (2020-02-13) x86_64 GNU/Linux
 
