@@ -1,17 +1,21 @@
-# elecena.pl (c) 2015-2018
+# elecena.pl (c) 2015-2020
 
 # @see https://hub.docker.com/_/python/
-FROM python:2.7-slim-stretch
+FROM python:3.8-slim-buster
+RUN pip install virtualenv && rm -rf /root/.cache
 
 # install dependencies
 RUN apt-get update && apt-get install -y \
-        php7.0-cli \
-        php7.0-curl \
-        php7.0-json \
-        php7.0-mbstring \
-        php7.0-soap \
-        php7.0-sockets \
-        php7.0-xml
+        php7.3-cli \
+        php7.3-curl \
+        php7.3-json \
+        php7.3-mbstring \
+        php7.3-soap \
+        php7.3-sockets \
+        php7.3-xml && \
+        rm -rf /tmp /var/log/* /var/cache/* /var/lib/apt/lists/*
+
+ENV PHP_VERSION 7.3.14
 
 # add an info script
 WORKDIR /opt
