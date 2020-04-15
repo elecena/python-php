@@ -13,7 +13,9 @@ RUN apt-get update && apt-get install -y \
         php7.3-soap \
         php7.3-sockets \
         php7.3-xml && \
-	rm -rf /tmp /var/log/* /var/cache/*
+        rm -rf /tmp /var/log/* /var/cache/* /var/lib/apt/lists/*
+
+ENV PHP_VERSION 7.3.14
 
 # add an info script
 WORKDIR /opt
