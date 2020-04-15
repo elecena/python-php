@@ -1,12 +1,17 @@
 python-php
 ==========
 
-Python and PHP under the same roof 
+Python and PHP under the same roof (in **under 150 MB Docker image**).
 
 https://hub.docker.com/r/elecena/python-php
 
 ```
 docker pull elecena/python-php
+```
+
+```
+REPOSITORY                                      TAG                        IMAGE ID            CREATED             SIZE
+elecena/python-php                              3.8-7.3-alpine             c9cc8676df95        36 minutes ago      139MB
 ```
 
 ## Installed software
