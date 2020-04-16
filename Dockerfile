@@ -1,8 +1,14 @@
 # elecena.pl (c) 2015-2020
 
+# @see https://hub.docker.com/_/composer
+FROM composer:1.10.5 AS php-composer
+
 # @see https://hub.docker.com/_/python/
 FROM python:3.8-alpine
 RUN pip install virtualenv && rm -rf /root/.cache
+
+# copy composer from the first stage
+COPY --from=php-composer /usr/bin/composer /usr/bin
 
 # install dependencies
 RUN apk update && apk add \
@@ -38,12 +44,12 @@ RUN apk update && apk add \
 	php7-xmlwriter \
 	php7-xml \
 	php7-xsl \
-	&& rm -rf /tmp /var/log/* /var/cache/*
+	&& rm -rf /tmp/* /var/log/* /var/cache/*
 
 ENV PHP_VERSION 7.3.16
 
 # add an info script
 WORKDIR /opt
 
-RUN echo "echo -e '### Python'; python -V; virtualenv --version; echo -e '\n### PHP'; php -v; php -m" > info.sh
+RUN echo "echo -e '### Python'; python -V; virtualenv --version; echo -e '\n### PHP'; php -v; composer -V; php -m" > info.sh
 RUN chmod 744 info.sh
