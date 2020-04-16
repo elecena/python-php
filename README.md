@@ -11,7 +11,7 @@ docker pull elecena/python-php
 
 ```
 REPOSITORY                                      TAG                        IMAGE ID            CREATED             SIZE
-elecena/python-php                              3.8-7.3-alpine             c9cc8676df95        36 minutes ago      139MB
+elecena/python-php                              3.8-7.3-alpine-composer    c9cc8676df95        6 minutes ago       141MB
 ```
 
 ## Installed software
@@ -28,6 +28,7 @@ PHP 7.3.16 (cli) (built: Mar 20 2020 11:26:40) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
 Zend Engine v3.3.16, Copyright (c) 1998-2018 Zend Technologies
     with Zend OPcache v7.3.16, Copyright (c) 1999-2018, by Zend Technologies
+Composer version 1.10.5 2020-04-10 11:44:22
 [PHP Modules]
 calendar
 Core
