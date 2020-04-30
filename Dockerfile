@@ -44,9 +44,15 @@ RUN apk update && apk add \
 	php7-xmlwriter \
 	php7-xml \
 	php7-xsl \
+	# see https://github.com/elecena/python-php/issues/8
+	# The problem seems to be that iconv in musl is not implemented to support that conversion, when using GNU iconv it works.
+	gnu-libiconv \
 	&& rm -rf /tmp/* /var/log/* /var/cache/*
 
-ENV PHP_VERSION 7.3.16
+ENV PHP_VERSION 7.3.17
+
+# use GNU iconv in php
+ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm7 php"
 
 # add an info script
 WORKDIR /opt
