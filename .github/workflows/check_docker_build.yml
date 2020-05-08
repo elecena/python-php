@@ -14,4 +14,4 @@ jobs:
       run: docker build . --tag ${{ github.repository }}
 
     - name: Run info.sh
-      run:  docker run -it ${{ github.repository }} sh info.sh
+      run:  docker run -t ${{ github.repository }} sh info.sh
