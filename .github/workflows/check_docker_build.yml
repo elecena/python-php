@@ -13,5 +13,8 @@ jobs:
     - name: Build the Docker image
       run: docker build . --tag ${{ github.repository }}
 
+    - name: Image details
+      run: docker images | head
+
     - name: Run info.sh
       run:  docker run -t ${{ github.repository }} sh info.sh
