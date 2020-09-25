@@ -1,10 +1,10 @@
 # elecena.pl (c) 2015-2020
 
 # @see https://hub.docker.com/_/composer
-FROM composer:1.10.5 AS php-composer
+FROM composer:1.10.13 AS php-composer
 
 # @see https://hub.docker.com/_/python/
-FROM python:3.8-alpine3.10
+FROM python:3.8.6-alpine
 RUN pip install virtualenv && rm -rf /root/.cache
 
 # copy composer from the first stage
