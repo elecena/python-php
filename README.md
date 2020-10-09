@@ -12,7 +12,7 @@ docker pull elecena/python-php
 ```
 $ docker images | head
 REPOSITORY                                          TAG                          IMAGE ID            CREATED        SIZE
-elecena/python-php                                  latest                       8a6373969bad        1 second ago   92.8MB
+elecena/python-php                                  latest                       19dc5f8cbbc8        1 second ago   94.9MB
 ```
 
 ## Installed software
@@ -21,8 +21,8 @@ elecena/python-php                                  latest                      
 $ docker run -it elecena/python-php sh info.sh
 
 ### Python
-Python 3.8.6
-virtualenv 20.0.31 from /usr/local/lib/python3.8/site-packages/virtualenv/__init__.py
+Python 3.9.0
+virtualenv 20.0.33 from /usr/local/lib/python3.9/site-packages/virtualenv/__init__.py
 
 ### PHP
 PHP 7.4.9 (cli) (built: Aug 31 2020 19:20:23) ( NTS )

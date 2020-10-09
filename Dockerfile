@@ -4,7 +4,7 @@
 FROM composer:1.10.13 AS php-composer
 
 # @see https://hub.docker.com/_/python/
-FROM python:3.8.6-alpine
+FROM python:3.9.0-alpine3.12
 RUN pip install virtualenv && rm -rf /root/.cache
 
 # copy composer from the first stage
