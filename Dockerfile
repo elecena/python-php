@@ -38,7 +38,6 @@ RUN apk update && apk add \
 	php8-soap \
 	php8-sockets \
 	php8-sodium \
-	php8-sysvmsg \
 	php8-sysvsem \
 	php8-sysvshm \
 	php8-xmlreader \
