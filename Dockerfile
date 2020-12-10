@@ -26,7 +26,6 @@ RUN apk update && apk add \
 	php8-ftp \
 	php8-gettext \
 	php8-iconv \
-	php8-json \
 	php8-mbstring \
 	php8-opcache \
 	php8-openssl \
