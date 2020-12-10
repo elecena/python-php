@@ -57,7 +57,7 @@ ENV PHP_VERSION 8.0.0
 ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm7 php7"
 
 # add a symlink
-RUN ln -s /usr/bin/php7 /usr/bin/php
+RUN ln -s /usr/bin/php8 /usr/bin/php
 
 # add an info script
 WORKDIR /opt
