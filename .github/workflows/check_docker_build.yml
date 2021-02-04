@@ -11,6 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
+      env:
+        # @see https://docs.docker.com/develop/develop-images/build_enhancements/
+        COMPOSE_DOCKER_CLI_BUILD: "1"
+        DOCKER_BUILDKIT: "1"
       run: docker build . --tag ${{ github.repository }}
 
     - name: Image details
