@@ -11,8 +11,8 @@ docker pull elecena/python-php
 
 ```
 $ docker images | head
-REPOSITORY                                          TAG                          IMAGE ID            CREATED        SIZE
-elecena/python-php                                  latest                       140a352ef8ee        1 second ago   102MB
+REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
+elecena/python-php                                   latest              a573fc57ed6a        1 second ago        104MB
 ```
 
 ## Installed software
@@ -22,14 +22,14 @@ $ docker run -it elecena/python-php sh info.sh
 
 ### Python
 Python 3.9.0
-virtualenv 20.2.2 from /usr/local/lib/python3.9/site-packages/virtualenv/__init__.py
+virtualenv 20.4.2 from /usr/local/lib/python3.9/site-packages/virtualenv/__init__.py
 
 ### PHP
-PHP 8.0.0 (cli) (built: Dec  4 2020 00:28:56) ( NTS )
+PHP 8.0.1 (cli) (built: Jan 10 2021 13:43:09) ( NTS )
 Copyright (c) The PHP Group
-Zend Engine v4.0.0-dev, Copyright (c) Zend Technologies
-    with Zend OPcache v8.0.0, Copyright (c), by Zend Technologies
-Composer version 1.10.13 2020-09-09 11:46:34
+Zend Engine v4.0.1, Copyright (c) Zend Technologies
+    with Zend OPcache v8.0.1, Copyright (c), by Zend Technologies
+Composer version 1.10.20 2021-01-27 15:41:06
 [PHP Modules]
 bz2
 calendar

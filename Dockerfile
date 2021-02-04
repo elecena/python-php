@@ -1,7 +1,7 @@
-# elecena.pl (c) 2015-2020
+# elecena.pl (c) 2015-2021
 
 # @see https://hub.docker.com/_/composer
-FROM composer:1.10.13 AS php-composer
+FROM composer:1.10.20 AS php-composer
 
 # @see https://hub.docker.com/_/python/
 FROM python:3.9.0-alpine3.12
@@ -14,6 +14,8 @@ COPY --from=php-composer /usr/bin/composer /usr/bin
 # @see https://github.com/codecasts/php-alpine
 ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 RUN echo "https://dl.bintray.com/php-alpine/v3.12/php-8.0" >> /etc/apk/repositories
+
+ENV PHP_VERSION 8.0.1
 
 # install dependencies
 RUN apk update && apk add \
@@ -48,8 +50,6 @@ RUN apk update && apk add \
 	# The problem seems to be that iconv in musl is not implemented to support that conversion, when using GNU iconv it works.
 	gnu-libiconv \
 	&& rm -rf /tmp/* /var/log/* /var/cache/*
-
-ENV PHP_VERSION 8.0.0
 
 # use GNU iconv in php
 ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm7 php7"
