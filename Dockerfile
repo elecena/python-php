@@ -1,7 +1,7 @@
 # elecena.pl (c) 2015-2021
 
 # @see https://hub.docker.com/_/composer
-FROM composer:1.10.20 AS php-composer
+FROM composer:2.1.3 AS php-composer
 
 # @see https://hub.docker.com/_/python/
 FROM python:3.9.5-alpine3.13
