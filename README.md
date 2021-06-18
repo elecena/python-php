@@ -11,8 +11,8 @@ docker pull elecena/python-php
 
 ```
 $ docker images | head
-REPOSITORY           TAG         IMAGE ID       CREATED        SIZE
-elecena/python-php   latest      935d8d3e9c2c   1 second ago   100MB
+REPOSITORY           TAG         IMAGE ID       CREATED         SIZE
+elecena/python-php   latest      0a1466db6d26   2 seconds ago   104MB
 ```
 
 ## Installed software
