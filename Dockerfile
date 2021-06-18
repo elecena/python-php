@@ -1,61 +1,56 @@
 # elecena.pl (c) 2015-2021
 
 # @see https://hub.docker.com/_/composer
-FROM composer:1.10.20 AS php-composer
+FROM composer:2.1.3 AS php-composer
+RUN /usr/bin/composer -v
+
+# @see https://hub.docker.com/_/php
+FROM php:8.0.7-cli-alpine AS php
+RUN apk add \
+		bzip2-dev \
+		libsodium-dev \
+		libxml2-dev \
+		libxslt-dev
+
+RUN docker-php-ext-install \
+	bz2 \
+	calendar \
+	exif \
+	pcntl \
+	shmop \
+	soap \
+	sockets \
+	sodium \
+	sysvsem \
+	sysvshm \
+	xsl
+
+RUN which php; php -v; php -m; php -i | grep ini
 
 # @see https://hub.docker.com/_/python/
-FROM python:3.9.0-alpine3.12
+FROM python:3.9.5-alpine
 RUN pip install virtualenv && rm -rf /root/.cache
+RUN python -V
 
 # copy composer from the first stage
 COPY --from=php-composer /usr/bin/composer /usr/bin
 
-# set up PHP 8.0 packages repository
-# @see https://github.com/codecasts/php-alpine
-ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
-RUN echo "https://dl.bintray.com/php-alpine/v3.12/php-8.0" >> /etc/apk/repositories
+# copy PHP binary and required libs
+COPY --from=php /usr/local/bin/php /usr/bin
+COPY --from=php /usr/local/etc/php /usr/local/etc/php
+COPY --from=php /usr/lib/*.so.* /usr/lib
+COPY --from=php /usr/local/lib/php /usr/local/lib/php
 
-ENV PHP_VERSION 8.0.1
-
-# install dependencies
-RUN apk update && apk add \
-	php8 \
-	php8-bz2 \
-	php8-calendar \
-	php8-curl \
-	php8-ctype \
-	php8-exif \
-	php8-ftp \
-	php8-gettext \
-	php8-iconv \
-	php8-mbstring \
-	php8-opcache \
-	php8-openssl \
-	php8-pcntl \
-	php8-pdo \
-	php8-phar \
-	php8-posix \
-	php8-session \
-	php8-shmop \
-	php8-soap \
-	php8-sockets \
-	php8-sodium \
-	php8-sysvsem \
-	php8-sysvshm \
-	php8-xmlreader \
-	php8-xml \
-	php8-xsl \
-	php8-zlib \
-	# see https://github.com/elecena/python-php/issues/8
-	# The problem seems to be that iconv in musl is not implemented to support that conversion, when using GNU iconv it works.
-	gnu-libiconv \
-	&& rm -rf /tmp/* /var/log/* /var/cache/*
-
+# see https://github.com/elecena/python-php/issues/8
+# The problem seems to be that iconv in musl is not implemented to support that conversion, when using GNU iconv it works.
+RUN apk add gnu-libiconv
 # use GNU iconv in php
-ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm7 php7"
+ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm php"
+# and test it...
+RUN php -r '$res = iconv("utf-8", "utf-8//IGNORE", "fooą");'
 
-# add a symlink
-RUN ln -s /usr/bin/php8 /usr/bin/php
+RUN php -v; php -m; php -i | grep ini
+ENV PHP_VERSION 8.0.7
 
 # add an info script
 WORKDIR /opt

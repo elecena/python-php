@@ -11,8 +11,8 @@ docker pull elecena/python-php
 
 ```
 $ docker images | head
-REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
-elecena/python-php                                   latest              a573fc57ed6a        1 second ago        104MB
+REPOSITORY           TAG         IMAGE ID       CREATED         SIZE
+elecena/python-php   latest      0a1466db6d26   2 seconds ago   104MB
 ```
 
 ## Installed software
@@ -21,15 +21,14 @@ elecena/python-php                                   latest              a573fc5
 $ docker run -it elecena/python-php sh info.sh
 
 ### Python
-Python 3.9.0
-virtualenv 20.4.2 from /usr/local/lib/python3.9/site-packages/virtualenv/__init__.py
+Python 3.9.5
+virtualenv 20.4.7 from /usr/local/lib/python3.9/site-packages/virtualenv/__init__.py
 
 ### PHP
-PHP 8.0.1 (cli) (built: Jan 10 2021 13:43:09) ( NTS )
+PHP 8.0.7 (cli) (built: Jun  4 2021 19:02:30) ( NTS )
 Copyright (c) The PHP Group
-Zend Engine v4.0.1, Copyright (c) Zend Technologies
-    with Zend OPcache v8.0.1, Copyright (c), by Zend Technologies
-Composer version 1.10.20 2021-01-27 15:41:06
+Zend Engine v4.0.7, Copyright (c) Zend Technologies
+Composer version 2.1.3 2021-06-09 16:31:20
 [PHP Modules]
 bz2
 calendar
@@ -42,16 +41,17 @@ exif
 fileinfo
 filter
 ftp
-gettext
 hash
 iconv
 json
 libxml
 mbstring
+mysqlnd
 openssl
 pcntl
 pcre
 PDO
+pdo_sqlite
 Phar
 posix
 readline
@@ -63,6 +63,7 @@ soap
 sockets
 sodium
 SPL
+sqlite3
 standard
 sysvsem
 sysvshm
@@ -71,9 +72,7 @@ xml
 xmlreader
 xmlwriter
 xsl
-Zend OPcache
 zlib
 
 [Zend Modules]
-Zend OPcache
 ```
