@@ -24,6 +24,10 @@ jobs:
       run: echo "DOCKER_TAG=${DOCKER_REPOSITORY}/${DOCKER_IMAGE_NAME}:${GITHUB_REF:10}" >> $GITHUB_ENV
 
     - name: Build the Docker image
+      env:
+        # @see https://docs.docker.com/develop/develop-images/build_enhancements/
+        COMPOSE_DOCKER_CLI_BUILD: "1"
+        DOCKER_BUILDKIT: "1"
       run: docker build . --tag ${DOCKER_TAG} --build-arg GITHUB_SHA=${GITHUB_SHA}
 
     # https://docs.github.com/en/free-pro-team@latest/actions/reference/authentication-in-a-workflow
