@@ -41,6 +41,14 @@ COPY --from=php /usr/local/etc/php /usr/local/etc/php
 COPY --from=php /usr/lib/*.so.* /usr/lib
 COPY --from=php /usr/local/lib/php /usr/local/lib/php
 
+# see https://github.com/elecena/python-php/issues/8
+# The problem seems to be that iconv in musl is not implemented to support that conversion, when using GNU iconv it works.
+RUN apk add gnu-libiconv
+# use GNU iconv in php
+ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm php"
+# and test it...
+RUN php -r '$res = iconv("utf-8", "utf-8//IGNORE", "fooą");'
+
 RUN php -v; php -m; php -i | grep ini
 ENV PHP_VERSION 8.0.7
 
