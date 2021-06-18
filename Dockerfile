@@ -38,7 +38,7 @@ COPY --from=php-composer /usr/bin/composer /usr/bin
 # copy PHP binary and required libs
 COPY --from=php /usr/local/bin/php /usr/bin
 COPY --from=php /usr/local/etc/php /usr/local/etc/php
-COPY --from=php /usr/lib/*.so.* /usr/lib
+COPY --from=php /usr/lib/*.so.* /usr/lib/
 COPY --from=php /usr/local/lib/php /usr/local/lib/php
 
 # see https://github.com/elecena/python-php/issues/8
