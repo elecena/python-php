@@ -6,6 +6,25 @@ RUN /usr/bin/composer -v
 
 # @see https://hub.docker.com/_/php
 FROM php:8.0.7-cli-alpine AS php
+RUN apk add \
+		bzip2-dev \
+		libsodium-dev \
+		libxml2-dev \
+		libxslt-dev
+
+RUN docker-php-ext-install \
+	bz2 \
+	calendar \
+	exif \
+	pcntl \
+	shmop \
+	soap \
+	sockets \
+	sodium \
+	sysvsem \
+	sysvshm \
+	xsl
+
 RUN which php; php -v; php -m; php -i | grep etc
 
 # @see https://hub.docker.com/_/python/
