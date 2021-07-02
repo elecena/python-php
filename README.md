@@ -9,6 +9,12 @@ https://hub.docker.com/r/elecena/python-php
 docker pull elecena/python-php
 ```
 
+or
+
+```
+docker pull ghcr.io/elecena/python-php:latest
+```
+
 ```
 $ docker images | head
 REPOSITORY           TAG         IMAGE ID       CREATED         SIZE
