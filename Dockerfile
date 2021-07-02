@@ -1,11 +1,11 @@
 # elecena.pl (c) 2015-2021
 
 # @see https://hub.docker.com/_/composer
-FROM composer:2.1.3 AS php-composer
+FROM composer:2 AS php-composer
 RUN /usr/bin/composer -v
 
 # @see https://hub.docker.com/_/php
-FROM php:8.0.7-cli-alpine AS php
+FROM php:8.0.8-cli-alpine AS php
 RUN apk add \
 		bzip2-dev \
 		libsodium-dev \
@@ -16,6 +16,7 @@ RUN docker-php-ext-install \
 	bz2 \
 	calendar \
 	exif \
+	opcache \
 	pcntl \
 	shmop \
 	soap \
@@ -28,7 +29,7 @@ RUN docker-php-ext-install \
 RUN which php; php -v; php -m; php -i | grep ini
 
 # @see https://hub.docker.com/_/python/
-FROM python:3.9.5-alpine
+FROM python:3.9.6-alpine
 RUN pip install virtualenv && rm -rf /root/.cache
 RUN python -V
 
