@@ -1,40 +1,25 @@
-name: Publish Docker image to pkg.github.com
-
-# https://help.github.com/en/actions/reference/events-that-trigger-workflows
+name: Publish Docker image to ghcr.io
 on:
-  # push: # debug
+
+  # publish on releases (tagged as "x.y.z" - "v" prefix is removed)
   release:
     types: [ published ]
-    
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+
+  # publish on pushes to the main branch (tagged as "master")
+  push:
+    branches:
+      - master
 
 jobs:
-  build:
-    # shared env variables
-    env:
-        DOCKER_REPOSITORY: docker.pkg.github.com
-        DOCKER_IMAGE_NAME: elecena/python-php/base  # follow OWNER/REPOSITORY/IMAGE_NAME schema
-        DOCKER_PUSH_USER: elecena  # this can be anything, Github token is used to log into the registry
-        
-    runs-on: ubuntu-latest
+  docker_publish:
+    runs-on: "ubuntu-20.04"
+
     steps:
-    - uses: actions/checkout@master
+      - uses: actions/checkout@v2
 
-    # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable
-    # e.g. docker.pkg.github.com/elecena/backend/bots-worker:1.9
-    - name: Set Docker image name and release tag
-      run: echo "DOCKER_TAG=${DOCKER_REPOSITORY}/${DOCKER_IMAGE_NAME}:${GITHUB_REF:10}" >> $GITHUB_ENV
-
-    - name: Build the Docker image
-      env:
-        # @see https://docs.docker.com/develop/develop-images/build_enhancements/
-        COMPOSE_DOCKER_CLI_BUILD: "1"
-        DOCKER_BUILDKIT: "1"
-      run: docker build . --tag ${DOCKER_TAG} --build-arg GITHUB_SHA=${GITHUB_SHA}
-
-    # https://docs.github.com/en/free-pro-team@latest/actions/reference/authentication-in-a-workflow
-    - name: Log in and publish to Registry
-      run: |
-        echo ${{ secrets.GITHUB_TOKEN }} | docker login ${DOCKER_REPOSITORY} -u ${DOCKER_PUSH_USER} --password-stdin
-        docker push ${DOCKER_TAG}
+      # https://github.com/marketplace/actions/push-to-ghcr
+      - name: Build and publish a Docker image for ${{ github.repository }}
+        uses: macbre/push-to-ghcr@v2
+        with:
+          image_name: ${{ github.repository }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
