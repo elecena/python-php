@@ -5,7 +5,7 @@ on:
   release:
     types: [ published ]
 
-  # publish on pushes to the main branch (tagged as "master")
+  # publish on pushes to the main branch
   push:
     branches:
       - master
@@ -19,7 +19,7 @@ jobs:
 
       # https://github.com/marketplace/actions/push-to-ghcr
       - name: Build and publish a Docker image for ${{ github.repository }}
-        uses: macbre/push-to-ghcr@v2
+        uses: macbre/push-to-ghcr@master
         with:
           image_name: ${{ github.repository }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
