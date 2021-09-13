@@ -1,11 +1,19 @@
 # elecena.pl (c) 2015-2021
 
-# @see https://hub.docker.com/_/composer
+# https://hub.docker.com/_/php
+ARG PHP_VERSION=8.0.10
+
+# https://hub.docker.com/_/python/
+ARG PYTHON_VERSION=3.9.7
+
+# https://hub.docker.com/_/composer
 FROM composer:2 AS php-composer
 RUN /usr/bin/composer -v
 
-# @see https://hub.docker.com/_/php
-FROM php:8.0.8-cli-alpine AS php
+#
+# PHP
+#
+FROM php:$PHP_VERSION-cli-alpine AS php
 RUN apk add \
 		bzip2-dev \
 		libsodium-dev \
@@ -28,8 +36,12 @@ RUN docker-php-ext-install \
 
 RUN which php; php -v; php -m; php -i | grep ini
 
-# @see https://hub.docker.com/_/python/
-FROM python:3.9.6-alpine
+#
+# Python
+#
+FROM python:$PYTHON_VERSION-alpine
+ARG PHP_VERSION
+
 RUN pip install virtualenv && rm -rf /root/.cache
 RUN python -V
 
@@ -51,7 +63,7 @@ ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm php"
 RUN php -r '$res = iconv("utf-8", "utf-8//IGNORE", "fooą");'
 
 RUN php -v; php -m; php -i | grep ini
-ENV PHP_VERSION 8.0.7
+ENV PHP_VERSION $PHP_VERSION
 
 # add an info script
 WORKDIR /opt
