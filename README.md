@@ -6,13 +6,13 @@ Python and PHP under the same roof (in **around 100 MB Docker image**).
 https://github.com/elecena/python-php/pkgs/container/python-php
 
 ```
-docker pull ghcr.io/elecena/python-php:3.9.6-8.0.8
+docker pull ghcr.io/elecena/python-php:3.9.7-8.0.10
 ```
 
 ```
 $ docker images | head
 REPOSITORY           TAG         IMAGE ID       CREATED         SIZE
-elecena/python-php   latest      0a1466db6d26   2 seconds ago   104MB
+elecena/python-php   latest      2108c555e6bc   2 seconds ago   102MB
 ```
 
 ## Installed software
@@ -21,15 +21,15 @@ elecena/python-php   latest      0a1466db6d26   2 seconds ago   104MB
 $ docker run -it elecena/python-php sh info.sh
 
 ### Python
-Python 3.9.6
-virtualenv 20.4.7 from /usr/local/lib/python3.9/site-packages/virtualenv/__init__.py
+Python 3.9.7
+virtualenv 20.7.2 from /usr/local/lib/python3.9/site-packages/virtualenv/__init__.py
 
 ### PHP
-PHP 8.0.8 (cli) (built: Jul  1 2021 22:52:06) ( NTS )
+PHP 8.0.10 (cli) (built: Aug 27 2021 21:31:44) ( NTS )
 Copyright (c) The PHP Group
-Zend Engine v4.0.8, Copyright (c) Zend Technologies
-    with Zend OPcache v8.0.8, Copyright (c), by Zend Technologies
-Composer version 2.1.3 2021-06-09 16:31:20
+Zend Engine v4.0.10, Copyright (c) Zend Technologies
+    with Zend OPcache v8.0.10, Copyright (c), by Zend Technologies
+Composer version 2.1.6 2021-08-19 17:11:08
 [PHP Modules]
 bz2
 calendar
