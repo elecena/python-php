@@ -1,13 +1,15 @@
-# elecena.pl (c) 2015-2021
+# elecena.pl (c) 2015-2022
 
 # https://hub.docker.com/_/php
-ARG PHP_VERSION=8.1.0
+ARG PHP_VERSION=8.1.2
 
 # https://hub.docker.com/_/python/
-ARG PYTHON_VERSION=3.10.1
+ARG PYTHON_VERSION=3.10.2
 
 # https://hub.docker.com/_/composer
-FROM composer:2 AS php-composer
+ARG COMPOSER_VERSION=2.2.6
+
+FROM composer:$COMPOSER_VERSION AS php-composer
 RUN /usr/bin/composer -v
 
 #
@@ -41,6 +43,7 @@ RUN which php; php -v; php -m; php -i | grep ini
 #
 FROM python:$PYTHON_VERSION-alpine
 ARG PHP_VERSION
+ARG COMPOSER_VERSION
 
 RUN pip install virtualenv && rm -rf /root/.cache
 RUN python -V
@@ -64,6 +67,7 @@ RUN php -r '$res = iconv("utf-8", "utf-8//IGNORE", "fooą");'
 
 RUN php -v; php -m; php -i | grep ini
 ENV PHP_VERSION $PHP_VERSION
+ENV COMPOSER_VERSION $COMPOSER_VERSION
 
 # add an info script
 WORKDIR /opt
