@@ -21,15 +21,15 @@ elecena/python-php   latest      4eb6703d62df   2 seconds ago   105MB
 $ docker run -it elecena/python-php sh info.sh
 
 ### Python
-Python 3.10.1
-virtualenv 20.10.0 from /usr/local/lib/python3.10/site-packages/virtualenv/__init__.py
+Python 3.10.2
+virtualenv 20.13.1 from /usr/local/lib/python3.10/site-packages/virtualenv/__init__.py
 
 ### PHP
-PHP 8.1.0 (cli) (built: Nov 30 2021 07:15:23) (NTS)
+PHP 8.1.2 (cli) (built: Jan 21 2022 21:38:22) (NTS)
 Copyright (c) The PHP Group
-Zend Engine v4.1.0, Copyright (c) Zend Technologies
-    with Zend OPcache v8.1.0, Copyright (c), by Zend Technologies
-Composer version 2.1.14 2021-11-30 10:51:43
+Zend Engine v4.1.2, Copyright (c) Zend Technologies
+    with Zend OPcache v8.1.2, Copyright (c), by Zend Technologies
+Composer version 2.2.6 2022-02-04 17:00:38
 [PHP Modules]
 bz2
 calendar
