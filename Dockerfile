@@ -22,6 +22,12 @@ RUN apk add \
 		libxml2-dev \
 		libxslt-dev
 
+# fixes "sockets" compilation issues
+# sendrecvmsg.c:128:19: error: invalid application of 'sizeof' to incomplete type 'struct cmsgcred'
+#
+# see https://github.com/docker-library/php/issues/1245#issuecomment-1019957169
+ENV CFLAGS="$CFLAGS -D_GNU_SOURCE"
+
 RUN docker-php-ext-install \
 	bz2 \
 	calendar \
