@@ -6,7 +6,7 @@ Python and PHP under the same roof (in **around 100 MB Docker image**).
 https://github.com/elecena/python-php/pkgs/container/python-php
 
 ```
-docker pull ghcr.io/elecena/python-php:3.10.1-8.1.0
+docker pull ghcr.io/elecena/python-php:3.10.2-8.1.2
 ```
 
 ```
