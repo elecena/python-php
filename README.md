@@ -11,8 +11,8 @@ docker pull ghcr.io/elecena/python-php:3.10.4-8.1.4
 
 ```
 $ docker images | head
-REPOSITORY                   TAG            IMAGE ID       CREATED        SIZE
-elecena/python-php           3.10.4-8.1.4   1939a4e57818   1 second ago   113MB
+REPOSITORY           TAG         IMAGE ID       CREATED         SIZE
+elecena/python-php   latest      1b1c0d911178   1 second ago    114MB
 ```
 
 ## Installed software
