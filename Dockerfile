@@ -4,7 +4,7 @@
 ARG PHP_VERSION=8.2.3
 
 # https://hub.docker.com/_/python/
-ARG PYTHON_VERSION=3.10.8
+ARG PYTHON_VERSION=3.11.2
 
 # https://hub.docker.com/_/composer
 ARG COMPOSER_VERSION=2.5.4
