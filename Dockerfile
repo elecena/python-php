@@ -7,7 +7,7 @@ ARG PHP_VERSION=8.2.3
 ARG PYTHON_VERSION=3.10.8
 
 # https://hub.docker.com/_/composer
-ARG COMPOSER_VERSION=2.3.10
+ARG COMPOSER_VERSION=2.5.4
 
 FROM composer:$COMPOSER_VERSION AS php-composer
 RUN /usr/bin/composer -v
