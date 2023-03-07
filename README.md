@@ -6,13 +6,13 @@ Python and PHP under the same roof (in **around 100 MB Docker image**).
 https://github.com/elecena/python-php/pkgs/container/python-php
 
 ```
-docker pull ghcr.io/elecena/python-php:3.10.4-8.1.4
+docker pull ghcr.io/elecena/python-php:3.11.2-8.2.3
 ```
 
 ```
 $ docker images | head
 REPOSITORY           TAG         IMAGE ID       CREATED         SIZE
-elecena/python-php   latest      1b1c0d911178   1 second ago    114MB
+elecena/python-php   latest      ff36428b8c54   2 seconds ago   123MB
 ```
 
 ## Installed software
@@ -21,15 +21,15 @@ elecena/python-php   latest      1b1c0d911178   1 second ago    114MB
 $ docker run -it elecena/python-php sh info.sh
 
 ### Python
-Python 3.10.8
-virtualenv 20.16.7 from /usr/local/lib/python3.10/site-packages/virtualenv/__init__.py
+Python 3.11.2
+virtualenv 20.20.0 from /usr/local/lib/python3.11/site-packages/virtualenv/__init__.py
 
 ### PHP
-PHP 8.1.12 (cli) (built: Nov 12 2022 08:52:37) (NTS)
+PHP 8.2.3 (cli) (built: Feb 14 2023 20:48:45) (NTS)
 Copyright (c) The PHP Group
-Zend Engine v4.1.12, Copyright (c) Zend Technologies
-    with Zend OPcache v8.1.12, Copyright (c), by Zend Technologies
-Composer version 2.3.10 2022-07-13 15:48:23
+Zend Engine v4.2.3, Copyright (c) Zend Technologies
+    with Zend OPcache v8.2.3, Copyright (c), by Zend Technologies
+Composer version 2.5.4 2023-02-15 13:10:06
 [PHP Modules]
 bz2
 calendar
@@ -55,6 +55,7 @@ PDO
 pdo_sqlite
 Phar
 posix
+random
 readline
 Reflection
 session
