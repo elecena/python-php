@@ -1,13 +1,13 @@
-# elecena.pl (c) 2015-2022
+# elecena.pl (c) 2015-2023
 
 # https://hub.docker.com/_/php
-ARG PHP_VERSION=8.1.12
+ARG PHP_VERSION=8.2.3
 
 # https://hub.docker.com/_/python/
-ARG PYTHON_VERSION=3.10.8
+ARG PYTHON_VERSION=3.11.2
 
 # https://hub.docker.com/_/composer
-ARG COMPOSER_VERSION=2.3.10
+ARG COMPOSER_VERSION=2.5.4
 
 FROM composer:$COMPOSER_VERSION AS php-composer
 RUN /usr/bin/composer -v
@@ -20,7 +20,8 @@ RUN apk add \
 		bzip2-dev \
 		libsodium-dev \
 		libxml2-dev \
-		libxslt-dev
+		libxslt-dev \
+		linux-headers
 
 # fixes "sockets" compilation issues
 # sendrecvmsg.c:128:19: error: invalid application of 'sizeof' to incomplete type 'struct cmsgcred'
