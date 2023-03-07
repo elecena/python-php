@@ -20,7 +20,8 @@ RUN apk add \
 		bzip2-dev \
 		libsodium-dev \
 		libxml2-dev \
-		libxslt-dev
+		libxslt-dev \
+		linux-headers
 
 # fixes "sockets" compilation issues
 # sendrecvmsg.c:128:19: error: invalid application of 'sizeof' to incomplete type 'struct cmsgcred'
