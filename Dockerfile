@@ -17,11 +17,13 @@ RUN /usr/bin/composer -v
 #
 FROM php:$PHP_VERSION-cli-alpine AS php
 RUN apk add \
+		autoconf \
 		bzip2-dev \
 		libsodium-dev \
 		libxml2-dev \
 		libxslt-dev \
-		linux-headers
+		linux-headers \
+		yaml-dev
 
 # fixes "sockets" compilation issues
 # sendrecvmsg.c:128:19: error: invalid application of 'sizeof' to incomplete type 'struct cmsgcred'
@@ -42,6 +44,12 @@ RUN docker-php-ext-install \
 	sysvsem \
 	sysvshm \
 	xsl
+
+# install yaml extensions from PECL
+# https://pecl.php.net/package/yaml/2.2.3
+RUN apk add gcc make g++ zlib-dev \
+	&& pecl channel-update pecl.php.net \
+	&& pecl install yaml-2.2.3 && docker-php-ext-enable yaml
 
 RUN which php; php -v; php -m; php -i | grep ini
 
