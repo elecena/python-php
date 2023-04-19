@@ -1,12 +1,12 @@
 python-php
 ==========
 
-Python and PHP under the same roof (in **around 100 MB Docker image**).
+Python and PHP under the same roof (in **under 125 MB Docker image**).
 
 https://github.com/elecena/python-php/pkgs/container/python-php
 
 ```
-docker pull ghcr.io/elecena/python-php:3.11.2-8.2.3
+docker pull ghcr.io/elecena/python-php:3.11.2-8.2.3:v2
 ```
 
 ```
@@ -22,7 +22,7 @@ $ docker run -it elecena/python-php sh info.sh
 
 ### Python
 Python 3.11.2
-virtualenv 20.20.0 from /usr/local/lib/python3.11/site-packages/virtualenv/__init__.py
+virtualenv 20.21.0 from /usr/local/lib/python3.11/site-packages/virtualenv/__init__.py
 
 ### PHP
 PHP 8.2.3 (cli) (built: Feb 14 2023 20:48:45) (NTS)
@@ -74,6 +74,7 @@ xml
 xmlreader
 xmlwriter
 xsl
+yaml
 Zend OPcache
 zlib
 
