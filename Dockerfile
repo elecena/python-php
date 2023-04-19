@@ -21,7 +21,8 @@ RUN apk add \
 		libsodium-dev \
 		libxml2-dev \
 		libxslt-dev \
-		linux-headers
+		linux-headers \
+		yaml-dev
 
 # fixes "sockets" compilation issues
 # sendrecvmsg.c:128:19: error: invalid application of 'sizeof' to incomplete type 'struct cmsgcred'
@@ -45,7 +46,7 @@ RUN docker-php-ext-install \
 
 # install yaml extensions from PECL
 # https://pecl.php.net/package/yaml/2.2.3
-RUN apk add --virtual build-deps autoconf gcc make g++ zlib-dev yaml-dev \
+RUN apk add --virtual build-deps autoconf gcc make g++ zlib-dev \
 	&& pecl channel-update pecl.php.net \
 	&& pecl install yaml-2.2.3 && docker-php-ext-enable yaml \
 	&& apk del build-deps
