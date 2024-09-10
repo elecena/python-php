@@ -1,13 +1,13 @@
 # elecena.pl (c) 2015-2024
 
 # https://hub.docker.com/_/php
-ARG PHP_VERSION=8.3.3
+ARG PHP_VERSION=8.3.11
 
 # https://hub.docker.com/_/python/
-ARG PYTHON_VERSION=3.12.2
+ARG PYTHON_VERSION=3.12.6
 
 # https://hub.docker.com/_/composer
-ARG COMPOSER_VERSION=2.7.1
+ARG COMPOSER_VERSION=2.7.9
 
 FROM composer:$COMPOSER_VERSION AS php-composer
 RUN /usr/bin/composer -v
