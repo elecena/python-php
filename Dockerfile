@@ -1,13 +1,13 @@
-# elecena.pl (c) 2015-2024
+# elecena.pl (c) 2015-2025
 
 # https://hub.docker.com/_/php
-ARG PHP_VERSION=8.4.1
+ARG PHP_VERSION=8.4.5
 
 # https://hub.docker.com/_/python/
-ARG PYTHON_VERSION=3.13.0
+ARG PYTHON_VERSION=3.13.2
 
 # https://hub.docker.com/_/composer
-ARG COMPOSER_VERSION=2.8.3
+ARG COMPOSER_VERSION=2.8.6
 
 FROM composer:$COMPOSER_VERSION AS php-composer
 RUN /usr/bin/composer -v
@@ -45,10 +45,10 @@ RUN docker-php-ext-install \
 	xsl
 
 # install yaml extensions from PECL
-# https://pecl.php.net/package/yaml/2.2.3
+# https://pecl.php.net/package/yaml/2.2.4
 RUN apk add --virtual build-deps autoconf gcc make g++ zlib-dev \
 	&& pecl channel-update pecl.php.net \
-	&& pecl install yaml-2.2.3 && docker-php-ext-enable yaml \
+	&& pecl install yaml-2.2.4 && docker-php-ext-enable yaml \
 	&& apk del build-deps
 
 RUN which php; php -v; php -m; php -i | grep ini
