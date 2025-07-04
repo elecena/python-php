@@ -20,18 +20,18 @@ elecena/python-php   latest    2493a5d6b254   1 second ago   117MB
 ```
 $ docker run -it elecena/python-php sh info.sh
 
- ### Python
-Python 3.13.2
-virtualenv 20.30.0 from /usr/local/lib/python3.13/site-packages/virtualenv/__init__.py
+### Python
+Python 3.13.5
+virtualenv 20.31.2 from /usr/local/lib/python3.13/site-packages/virtualenv/__init__.py
 
 ### PHP
-PHP 8.4.5 (cli) (built: Mar 14 2025 00:11:50) (NTS)
+PHP 8.4.10 (cli) (built: Jul  3 2025 23:01:37) (NTS)
 Copyright (c) The PHP Group
 Built by https://github.com/docker-library/php
-Zend Engine v4.4.5, Copyright (c) Zend Technologies
-    with Zend OPcache v8.4.5, Copyright (c), by Zend Technologies
-Composer version 2.8.6 2025-02-25 13:03:50
-PHP version 8.4.5 (/usr/bin/php)
+Zend Engine v4.4.10, Copyright (c) Zend Technologies
+    with Zend OPcache v8.4.10, Copyright (c), by Zend Technologies
+Composer version 2.8.9 2025-05-13 14:01:37
+PHP version 8.4.10 (/usr/bin/php)
 Run the "diagnose" command to get more detailed diagnostics output.
 [PHP Modules]
 bz2
