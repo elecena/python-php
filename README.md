@@ -6,13 +6,13 @@ Python and PHP under the same roof (in **under 125 MB Docker image**).
 https://github.com/elecena/python-php/pkgs/container/python-php
 
 ```
-docker pull ghcr.io/elecena/python-php:3.13.2-8.4.5
+docker pull ghcr.io/elecena/python-php:3.13.5-8.4.10
 ```
 
 ```
 $ docker images | head
 REPOSITORY           TAG       IMAGE ID       CREATED        SIZE
-elecena/python-php   latest    2493a5d6b254   1 second ago   117MB
+elecena/python-php   latest    987175347e2d   1 second ago   122MB
 ```
 
 ## Installed software
