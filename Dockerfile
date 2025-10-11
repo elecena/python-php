@@ -1,7 +1,7 @@
 # elecena.pl (c) 2015-2025
 
 # https://hub.docker.com/_/php
-ARG PHP_VERSION=8.5.0beta2
+ARG PHP_VERSION=8.5.0RC2
 
 # https://hub.docker.com/_/python/
 ARG PYTHON_VERSION=3.13.7
