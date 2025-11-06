@@ -43,7 +43,6 @@ RUN docker-php-ext-install \
 	shmop \
 	soap \
 	sockets \
-	sodium \
 	sysvsem \
 	sysvshm \
 	xsl
