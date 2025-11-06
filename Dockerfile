@@ -28,7 +28,7 @@ RUN apk add \
 # sendrecvmsg.c:128:19: error: invalid application of 'sizeof' to incomplete type 'struct cmsgcred'
 #
 # see https://github.com/docker-library/php/issues/1245#issuecomment-1019957169
-ENV CFLAGS="$CFLAGS -D_GNU_SOURCE"
+ENV CFLAGS="${CFLAGS:-} -D_GNU_SOURCE"
 
 RUN docker-php-ext-install \
 	bz2 \
@@ -81,8 +81,8 @@ ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm php"
 RUN php -r '$res = iconv("utf-8", "utf-8//IGNORE", "fooą");'
 
 RUN php -v; php -m; php -i | grep ini
-ENV PHP_VERSION $PHP_VERSION
-ENV COMPOSER_VERSION $COMPOSER_VERSION
+ENV PHP_VERSION=$PHP_VERSION
+ENV COMPOSER_VERSION=$COMPOSER_VERSION
 
 # add an info script
 WORKDIR /opt
