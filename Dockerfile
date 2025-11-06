@@ -16,6 +16,10 @@ RUN /usr/bin/composer -v
 # PHP
 #
 FROM php:$PHP_VERSION-cli-alpine AS php
+
+# check what's already installed
+RUN php -v; php -m
+
 RUN apk add \
 		bzip2-dev \
 		libsodium-dev \
