@@ -38,10 +38,11 @@ RUN docker-php-ext-install \
 	bz2 \
 	calendar \
 	exif \
-	opcache \
 	pcntl \
+	shmop \
 	soap \
 	sockets \
+	sodium \
 	sysvsem \
 	sysvshm \
 	xsl
