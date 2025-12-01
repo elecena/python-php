@@ -6,31 +6,30 @@ Python and PHP under the same roof (in **under 125 MB Docker image**).
 https://github.com/elecena/python-php/pkgs/container/python-php
 
 ```
-docker pull ghcr.io/elecena/python-php:3.14.0-8.4.13
+docker pull ghcr.io/elecena/python-php:3.14.0-8.5.0
 ```
 
 ```
 $ docker images | head
 REPOSITORY           TAG       IMAGE ID       CREATED        SIZE
-elecena/python-php   latest    adfd7d133180   1 second ago   117MB
+elecena/python-php   latest    68072de0a9cd   1 second ago   124MB
 ```
 
 ## Installed software
 
 ```
 $ docker run -it elecena/python-php sh info.sh
-
 ### Python
 Python 3.14.0
 virtualenv 20.35.3 from /usr/local/lib/python3.14/site-packages/virtualenv/__init__.py
 ### PHP
-PHP 8.4.13 (cli) (built: Oct  8 2025 22:45:03) (NTS)
+PHP 8.5.0 (cli) (built: Nov 20 2025 19:49:31) (NTS)
 Copyright (c) The PHP Group
 Built by https://github.com/docker-library/php
-Zend Engine v4.4.13, Copyright (c) Zend Technologies
-    with Zend OPcache v8.4.13, Copyright (c), by Zend Technologies
-Composer version 2.8.12 2025-09-19 13:41:59
-PHP version 8.4.13 (/usr/bin/php)
+Zend Engine v4.5.0, Copyright (c) Zend Technologies
+    with Zend OPcache v8.5.0, Copyright (c), by Zend Technologies
+Composer version 2.9.2 2025-11-19 21:57:25
+PHP version 8.5.0 (/usr/bin/php)
 Run the "diagnose" command to get more detailed diagnostics output.
 [PHP Modules]
 bz2
@@ -46,6 +45,7 @@ filter
 hash
 iconv
 json
+lexbor
 libxml
 mbstring
 mysqlnd
@@ -71,6 +71,7 @@ standard
 sysvsem
 sysvshm
 tokenizer
+uri
 xml
 xmlreader
 xmlwriter
@@ -78,6 +79,7 @@ xsl
 yaml
 Zend OPcache
 zlib
+
 [Zend Modules]
 Zend OPcache
 ```

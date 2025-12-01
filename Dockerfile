@@ -1,13 +1,13 @@
 # elecena.pl (c) 2015-2025
 
 # https://hub.docker.com/_/php
-ARG PHP_VERSION=8.4.13
+ARG PHP_VERSION=8.5.0
 
 # https://hub.docker.com/_/python/
 ARG PYTHON_VERSION=3.14.0
 
 # https://hub.docker.com/_/composer
-ARG COMPOSER_VERSION=2.8.12
+ARG COMPOSER_VERSION=2.9.2
 
 FROM composer:$COMPOSER_VERSION AS php-composer
 RUN /usr/bin/composer -v
@@ -16,6 +16,10 @@ RUN /usr/bin/composer -v
 # PHP
 #
 FROM php:$PHP_VERSION-cli-alpine AS php
+
+# check what's already installed
+RUN php -v; php -m
+
 RUN apk add \
 		bzip2-dev \
 		libsodium-dev \
@@ -28,13 +32,12 @@ RUN apk add \
 # sendrecvmsg.c:128:19: error: invalid application of 'sizeof' to incomplete type 'struct cmsgcred'
 #
 # see https://github.com/docker-library/php/issues/1245#issuecomment-1019957169
-ENV CFLAGS="$CFLAGS -D_GNU_SOURCE"
+ENV CFLAGS="${CFLAGS:-} -D_GNU_SOURCE"
 
 RUN docker-php-ext-install \
 	bz2 \
 	calendar \
 	exif \
-	opcache \
 	pcntl \
 	shmop \
 	soap \
@@ -45,10 +48,11 @@ RUN docker-php-ext-install \
 	xsl
 
 # install yaml extensions from PECL
-# https://pecl.php.net/package/yaml/2.2.4
+# https://pecl.php.net/package-changelog.php?package=yaml
+# https://pecl.php.net/package/yaml/2.3.0
 RUN apk add --virtual build-deps autoconf gcc make g++ zlib-dev \
 	&& pecl channel-update pecl.php.net \
-	&& pecl install yaml-2.2.4 && docker-php-ext-enable yaml \
+	&& pecl install yaml-2.3.0 && docker-php-ext-enable yaml \
 	&& apk del build-deps
 
 RUN which php; php -v; php -m; php -i | grep ini
@@ -81,8 +85,8 @@ ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm php"
 RUN php -r '$res = iconv("utf-8", "utf-8//IGNORE", "fooą");'
 
 RUN php -v; php -m; php -i | grep ini
-ENV PHP_VERSION $PHP_VERSION
-ENV COMPOSER_VERSION $COMPOSER_VERSION
+ENV PHP_VERSION=$PHP_VERSION
+ENV COMPOSER_VERSION=$COMPOSER_VERSION
 
 # add an info script
 WORKDIR /opt
