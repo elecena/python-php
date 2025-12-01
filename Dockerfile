@@ -40,7 +40,6 @@ RUN docker-php-ext-install \
 	exif \
 	opcache \
 	pcntl \
-	shmop \
 	soap \
 	sockets \
 	sysvsem \
