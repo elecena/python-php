@@ -1,21 +1,14 @@
 # elecena.pl (c) 2015-2026
 
-# https://hub.docker.com/_/php
-ARG PHP_VERSION=8.5.1
-
-# https://hub.docker.com/_/python/
-ARG PYTHON_VERSION=3.14.2
-
 # https://hub.docker.com/_/composer
-ARG COMPOSER_VERSION=2.9.3
-
-FROM composer:$COMPOSER_VERSION AS php-composer
+FROM composer:2.9.3 AS php-composer
 RUN /usr/bin/composer -v
 
 #
 # PHP
 #
-FROM php:$PHP_VERSION-cli-alpine AS php
+# https://hub.docker.com/_/php
+FROM php:8.5.1-cli-alpine AS php
 
 # check what's already installed
 RUN php -v; php -m
@@ -60,9 +53,8 @@ RUN which php; php -v; php -m; php -i | grep ini
 #
 # Python
 #
-FROM python:$PYTHON_VERSION-alpine
-ARG PHP_VERSION
-ARG COMPOSER_VERSION
+# https://hub.docker.com/_/python/
+FROM python:3.14.2-alpine
 
 RUN pip install virtualenv && rm -rf /root/.cache
 RUN python -V
@@ -85,8 +77,6 @@ ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm php"
 RUN php -r '$res = iconv("utf-8", "utf-8//IGNORE", "fooą");'
 
 RUN php -v; php -m; php -i | grep ini
-ENV PHP_VERSION=$PHP_VERSION
-ENV COMPOSER_VERSION=$COMPOSER_VERSION
 
 # add an info script
 WORKDIR /opt
