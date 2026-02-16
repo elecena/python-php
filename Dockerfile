@@ -1,7 +1,7 @@
 # elecena.pl (c) 2015-2026
 
 # https://hub.docker.com/_/composer
-FROM composer:2.9.3 AS php-composer
+FROM composer:2.9.5 AS php-composer
 RUN /usr/bin/composer -v
 
 #
