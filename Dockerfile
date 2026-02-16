@@ -8,7 +8,7 @@ RUN /usr/bin/composer -v
 # PHP
 #
 # https://hub.docker.com/_/php
-FROM php:8.5.1-cli-alpine AS php
+FROM php:8.5.3-cli-alpine AS php
 
 # check what's already installed
 RUN php -v; php -m
