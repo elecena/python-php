@@ -6,13 +6,13 @@ Python and PHP under the same roof (in **under 50 MB Docker image**).
 https://github.com/elecena/python-php/pkgs/container/python-php
 
 ```
-docker pull ghcr.io/elecena/python-php:3.14.3-8.5.3
+docker pull ghcr.io/elecena/python-php:3.14.3-8.5.4
 ```
 
 ```
 $ docker images | head
-IMAGE                                               ID             DISK USAGE   CONTENT SIZE   EXTRA
-elecena/python-php:latest                           6953c988e748        185MB         48.2MB        
+REPOSITORY                                   TAG       IMAGE ID       CREATED        SIZE
+elecena/python-php                           latest    6ab164da5515   1 second ago   126MB  
 ```
 
 ## Installed software
@@ -24,13 +24,13 @@ Python 3.14.3
 virtualenv 20.37.0 from /usr/local/lib/python3.14/site-packages/virtualenv/__init__.py
 
 ### PHP
-PHP 8.5.3 (cli) (built: Feb 13 2026 18:34:10) (NTS)
+PHP 8.5.4 (cli) (built: Mar 12 2026 23:30:09) (NTS)
 Copyright (c) The PHP Group
 Built by https://github.com/docker-library/php
-Zend Engine v4.5.3, Copyright (c) Zend Technologies
-    with Zend OPcache v8.5.3, Copyright (c), by Zend Technologies
+Zend Engine v4.5.4, Copyright (c) Zend Technologies
+    with Zend OPcache v8.5.4, Copyright (c), by Zend Technologies
 Composer version 2.9.5 2026-01-29 11:40:53
-PHP version 8.5.3 (/usr/bin/php)
+PHP version 8.5.4 (/usr/bin/php)
 Run the "diagnose" command to get more detailed diagnostics output.
 [PHP Modules]
 bz2
