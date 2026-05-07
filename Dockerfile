@@ -54,7 +54,7 @@ RUN which php; php -v; php -m; php -i | grep ini
 # Python
 #
 # https://hub.docker.com/_/python/
-FROM python:3.14.3-alpine
+FROM python:3.15.0a8-alpine
 
 RUN pip install virtualenv && rm -rf /root/.cache
 RUN python -V
