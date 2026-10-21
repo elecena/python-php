@@ -23,4 +23,3 @@ jobs:
         with:
           image_name: ${{ github.repository }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
