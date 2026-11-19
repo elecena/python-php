@@ -1,7 +1,7 @@
 python-php
 ==========
 
-Python and PHP under the same roof.
+Python and PHP under the same roof with images for `linux/amd64`, `linux/arm/v7` and `linux/arm64` architectures.
 
 https://github.com/elecena/python-php/pkgs/container/python-php
 
