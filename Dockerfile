@@ -45,8 +45,8 @@ RUN docker-php-ext-install \
 # https://packagist.org/packages/pecl/yaml
 RUN apk add --virtual build-deps autoconf gcc make g++ zlib-dev \
 	&& curl -fL --output /tmp/pie.phar https://github.com/php/pie/releases/download/1.5.5/pie.phar \
-  	&& sudo mv /tmp/pie.phar /usr/local/bin/pie \
-  	&& sudo chmod +x /usr/local/bin/pie \
+  	&& mv /tmp/pie.phar /usr/local/bin/pie \
+  	&& chmod +x /usr/local/bin/pie \
 	&& pie --version \
 	&& pie install pecl/yaml \
 	&& apk del build-deps
