@@ -6,7 +6,12 @@ Python and PHP under the same roof.
 https://github.com/elecena/python-php/pkgs/container/python-php
 
 ```
-docker pull ghcr.io/elecena/python-php:3.15.2-8.5.13
+docker pull ghcr.io/elecena/python-php:3.15.2-8.6.0
+```
+
+```
+REPOSITORY                                   TAG       IMAGE ID       CREATED         SIZE
+elecena/python-php                           latest    b1d405b8baf5   2 seconds ago   210MB
 ```
 
 ## Installed software
@@ -19,13 +24,13 @@ virtualenv 21.15.9 from /usr/local/lib/python3.15/site-
 packages/virtualenv/__init__.py
 
 ### PHP
-PHP 8.5.13 (cli) (built: Nov 19 2026 14:29:50) (NTS)
-Copyright (c) The PHP Group
+PHP 8.6.0 (cli) (built: Nov 19 2026 15:18:16) (ZTS)
+Copyright © The PHP Group and Contributors
 Built by https://github.com/docker-library/php
-Zend Engine v4.5.13, Copyright (c) Zend Technologies
-    with Zend OPcache v8.5.13, Copyright (c), by Zend Technologies
+Zend Engine v4.6.0, Copyright © Zend by Perforce
+    with Zend OPcache v8.6.0, Copyright ©, by Zend by Perforce
 Composer version 2.11.1 2026-10-30 14:52:10
-PHP version 8.5.13 (/usr/bin/php)
+PHP version 8.6.0 (/usr/bin/php)
 Run the "diagnose" command to get more detailed diagnostics output.
 [PHP Modules]
 bz2
@@ -72,7 +77,6 @@ xml
 xmlreader
 xmlwriter
 xsl
-yaml
 Zend OPcache
 zlib
 

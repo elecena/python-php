@@ -8,7 +8,7 @@ RUN /usr/bin/composer -v
 # PHP
 #
 # https://hub.docker.com/_/php
-FROM php:8.5.13-cli-alpine AS php
+FROM php:8.6.0-cli-alpine AS php
 
 # check what's already installed
 RUN php -v; php -m
@@ -19,6 +19,7 @@ RUN apk add \
 		libxml2-dev \
 		libxslt-dev \
 		linux-headers \
+		oniguruma-dev \
 		yaml-dev
 
 # fixes "sockets" compilation issues
@@ -31,6 +32,7 @@ RUN docker-php-ext-install \
 	bz2 \
 	calendar \
 	exif \
+	mbstring \
 	pcntl \
 	shmop \
 	soap \
@@ -39,14 +41,6 @@ RUN docker-php-ext-install \
 	sysvsem \
 	sysvshm \
 	xsl
-
-# install yaml extensions from PECL
-# https://pecl.php.net/package-changelog.php?package=yaml
-# https://pecl.php.net/package/yaml/2.3.0
-RUN apk add --virtual build-deps autoconf gcc make g++ zlib-dev \
-	&& pecl channel-update pecl.php.net \
-	&& pecl install yaml-2.3.0 && docker-php-ext-enable yaml \
-	&& apk del build-deps
 
 RUN which php; php -v; php -m; php -i | grep ini
 
