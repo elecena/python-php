@@ -72,7 +72,6 @@ xml
 xmlreader
 xmlwriter
 xsl
-yaml
 Zend OPcache
 zlib
 
