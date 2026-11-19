@@ -19,6 +19,7 @@ RUN apk add \
 		libxml2-dev \
 		libxslt-dev \
 		linux-headers \
+		oniguruma-dev \
 		yaml-dev
 
 # fixes "sockets" compilation issues
