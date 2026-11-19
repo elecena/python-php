@@ -6,7 +6,7 @@ Python and PHP under the same roof.
 https://github.com/elecena/python-php/pkgs/container/python-php
 
 ```
-docker pull ghcr.io/elecena/python-php:3.15.2-8.5.12
+docker pull ghcr.io/elecena/python-php:3.15.2-8.5.13
 ```
 
 ## Installed software
@@ -19,13 +19,13 @@ virtualenv 21.15.9 from /usr/local/lib/python3.15/site-
 packages/virtualenv/__init__.py
 
 ### PHP
-PHP 8.5.12 (cli) (built: Nov  5 2026 18:58:32) (NTS)
+PHP 8.5.13 (cli) (built: Nov 19 2026 14:29:50) (NTS)
 Copyright (c) The PHP Group
 Built by https://github.com/docker-library/php
-Zend Engine v4.5.12, Copyright (c) Zend Technologies
-    with Zend OPcache v8.5.12, Copyright (c), by Zend Technologies
+Zend Engine v4.5.13, Copyright (c) Zend Technologies
+    with Zend OPcache v8.5.13, Copyright (c), by Zend Technologies
 Composer version 2.11.1 2026-10-30 14:52:10
-PHP version 8.5.12 (/usr/bin/php)
+PHP version 8.5.13 (/usr/bin/php)
 Run the "diagnose" command to get more detailed diagnostics output.
 [PHP Modules]
 bz2
