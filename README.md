@@ -48,6 +48,7 @@ iconv
 json
 lexbor
 libxml
+mbstring
 mysqlnd
 openssl
 pcntl
