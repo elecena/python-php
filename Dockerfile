@@ -27,6 +27,7 @@ RUN apk add \
 # see https://github.com/docker-library/php/issues/1245#issuecomment-1019957169
 ENV CFLAGS="${CFLAGS:-} -D_GNU_SOURCE"
 
+# https://github.com/mlocati/docker-php-extension-installer#supported-php-extensions
 RUN docker-php-ext-install \
 	bz2 \
 	calendar \
@@ -38,15 +39,8 @@ RUN docker-php-ext-install \
 	sodium \
 	sysvsem \
 	sysvshm \
+	yaml \
 	xsl
-
-# install yaml extensions from PECL
-# https://pecl.php.net/package-changelog.php?package=yaml
-# https://pecl.php.net/package/yaml/2.3.0
-RUN apk add --virtual build-deps autoconf gcc make g++ zlib-dev \
-	&& pecl channel-update pecl.php.net \
-	&& pecl install yaml-2.3.0 && docker-php-ext-enable yaml \
-	&& apk del build-deps
 
 RUN which php; php -v; php -m; php -i | grep ini
 
