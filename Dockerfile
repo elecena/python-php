@@ -31,6 +31,7 @@ RUN docker-php-ext-install \
 	bz2 \
 	calendar \
 	exif \
+	mbstring \
 	pcntl \
 	shmop \
 	soap \
