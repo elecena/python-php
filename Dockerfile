@@ -40,17 +40,6 @@ RUN docker-php-ext-install \
 	sysvshm \
 	xsl
 
-# install yaml extensions from pie
-# https://github.com/php/pie#installing-pie
-# https://packagist.org/packages/pecl/yaml
-RUN apk add --virtual build-deps autoconf gcc libtool make g++ zlib-dev \
-	&& curl -fL --output /tmp/pie.phar https://github.com/php/pie/releases/download/1.5.5/pie.phar \
-  	&& mv /tmp/pie.phar /usr/local/bin/pie \
-  	&& chmod +x /usr/local/bin/pie \
-	&& pie --version \
-	&& pie install pecl/yaml \
-	&& apk del build-deps
-
 RUN which php; php -v; php -m; php -i | grep ini
 
 #
